@@ -1,7 +1,7 @@
-*{
-  font-family: "Roboto", Arial, Helvetica, sans-serif
+/* *{
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
-
+*/
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -9,46 +9,42 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(236, 236, 236)
+  background: rgb(236, 236, 236);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-    background-color: rgb(175, 175, 175);
-    color: rgb(17, 153, 4);
-    padding: ;
-    border-radius: 20px;
+  background-color: rgb(175, 175, 175);
+  color: rgb(17, 153, 4);
+  border-radius: 10px;
 }
 pre code {
-  background-color: rgb(78, 78, 78) ;
-  color: rgb(189, 130, 3) ;
+  background-color: rgb(78, 78, 78);
+  color: rgb(189, 130, 3);
   padding: 0;
 }
-.container{
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-.left{
-width: 95%;
-height: 90vh;
 
+.left {
+  height: 90vh;
 }
-.right{
+.right {
   width: 95%;
-  height: 75vh;
-  border: 1px dotted mediumorchid;
-  border-radius: 20px;
-  overflow: auto;
+  height: auto;
+  border: 1px solid mediumorchid;
+  border-radius: 5px;
+  
+  
 }
 
-#editor{
-  width:  100%;
+#editor {
+  width: 100%;
   height: 80%;
   outline: none;
-  padding: .25vw;
+  padding: 0.25vw;
 }
 
-#preview{
-  padding: .5 vw;
+.Jumbotron {
+  background-image: url(https://cdn.pixabay.com/photo/2018/01/24/18/05/background-3104413_1280.jpg) ;
+  background-size: 1500px;
 }

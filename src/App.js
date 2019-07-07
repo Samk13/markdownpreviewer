@@ -1,13 +1,12 @@
 import React from 'react'
 import marked from 'marked'
-import {Componant} from 'react'
-import ReactDOM from 'react-dom'
 import hljs from 'highlight.js';
+import 'bootstrap/dist/css/bootstrap.css';
+import NavBar from './components/NavBar'
+import { Button, Form, FormGroup, Label, Input, FormText, Jumbotron, Container, Row, Col } from 'reactstrap';
 
 
-
-
-const initialMarkdown= `
+const initialMarkdown = `
 ### Headers
 # Header 1
 ## Header 2
@@ -42,52 +41,64 @@ console.log (func);
 `
 
 let renderer = new marked.Renderer()
-renderer.link = function(href, title, text){
+renderer.link = function (href, title, text) {
   return `<a href=${href} target= '_blank'>${text}</a>`
 }
 marked.setOptions({
-  renderer:renderer,
+  renderer: renderer,
   breaks: true,
-  highlight: function(code){
+  highlight: function (code) {
     return hljs.highlightAuto(code).value
   }
 })
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       markdown: initialMarkdown
     }
   }
-  handelChange = e => this.setState({markdown: e.target.value})
+  handelChange = e => this.setState({ markdown: e.target.value })
 
 
-  render(){
-    return(
+  render() {
+    return (
+      
       <div>
-        <div><h1>Markdown Preview</h1></div>
-        <div className='container'>
-          <div className='left'>
-            <textarea id='editor'
-             value={this.state.markdown}
-              onChange={this.handelChange}/>
-          </div>
-          <div className='right'>
-            <div id='preview'
-            dangerouslySetInnerHTML={{__html: marked(this.state.markdown)}} />
-        
-            
-          </div>
+        <NavBar />
+        <Jumbotron fluid className='Jumbotron'>
+          <h1 className="display-3 text-center text-success ">🛰Markdown Preview 🛰</h1>
+          <p className="lead text-center text-warning">This is my markdown App from FCC Front End Libraries Project created by Sam Arbid </p>
+        </Jumbotron>
+
+        <Container>
+          <Row>
 
 
-        </div>
+            <Col>
+              <FormGroup>
+                <Label for="exampleText">Text Area</Label>
+                <Input className='left' style={{ height: 900 }} type="textarea" id='editor' name="text" value={this.state.markdown} onChange={this.handelChange} />
+              </FormGroup>
+            </Col>
+
+
+            <Col>
+            <p>MarkdownResult 👇</p>
+              <div className='right'>
+                <div id='preview'
+                  dangerouslySetInnerHTML={{ __html: marked(this.state.markdown) }} />
+              </div>
+            </Col>
+          </Row>
+
+        </Container>
 
       </div>
 
     )
   }
-
 }
 
 export default App;
